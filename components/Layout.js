@@ -66,8 +66,11 @@ export default function Layout({ title, children }) {
                     </Menu.Item>{" "}
                     <br />
                     <Menu.Item>
-                      <DropdownLink className="dropdown-link" href="/profile">
-                        Profile
+                      <DropdownLink
+                        className="dropdown-link"
+                        href="/orderHistory"
+                      >
+                        Order History
                       </DropdownLink>
                     </Menu.Item>{" "}
                     <br />

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const connection = {};
+// const connection = {};
 
 async function connectDB() {
   const { connection } = mongoose.connect(process.env.MONGO_URI);

@@ -14,6 +14,14 @@ function reducer(state, action) {
       return { ...state, loading: false, order: action.payload, error: "" };
     case "fetch_fail":
       return { ...state, loading: false, error: action.payload };
+    case "pay_request":
+      return { ...state, loadingPay: true };
+    case "pay_success":
+      return { ...state, loadingPay: false, successPay: true };
+    case "pay_fail":
+      return { ...state, loadingPay: false, errorPay: action.payload };
+    case "pay_reset":
+      return { ...state, loadingPay: false, successPay: false, errorPay: "" };
     default:
       state;
   }
@@ -42,7 +50,7 @@ export default function Order() {
     isDelivered,
     deliveredAt,
   } = order;
-  console.log(shippingAddress);
+
   useEffect(() => {
     const fetchOrder = async () => {
       try {
@@ -155,6 +163,17 @@ export default function Order() {
                   <div>{totalPrice}</div>
                 </div>
               </li>
+              {/* {
+                !isPaid&& (
+                  <li>
+                    {isPending? (<div>Loading...</div>):(
+                      <div className="w-full">
+
+                      </div>
+                    )}
+                  </li>
+                )
+              } */}
             </ul>
           </div>
         </div>

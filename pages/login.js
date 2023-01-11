@@ -33,8 +33,9 @@ export default function Login() {
         email,
         password,
       });
+      console.log(result);
       if (result.error) {
-        toast.error(result.error);
+        toast.error("error", result.error);
       }
     } catch (error) {
       toast.error(getError(error));
@@ -91,7 +92,8 @@ export default function Login() {
         </div>
         <div className="mb-4">
           Don&apos;t have any account?&nbsp;
-          <Link href="register">Register</Link>
+          {/* <Link href="register">Register</Link> */}
+          <Link href={`/register?redirect=${redirect || "/"}`}> Register</Link>
         </div>
       </form>
     </Layout>
